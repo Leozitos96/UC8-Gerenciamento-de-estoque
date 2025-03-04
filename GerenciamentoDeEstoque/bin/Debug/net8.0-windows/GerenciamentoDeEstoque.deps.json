@@ -10,6 +10,7 @@
         "dependencies": {
           "Microsoft.Data.Sqlite": "9.0.2",
           "Microsoft.EntityFrameworkCore": "9.0.2",
+          "Microsoft.EntityFrameworkCore.Analyzers": "9.0.2",
           "Microsoft.EntityFrameworkCore.Sqlite": "9.0.2",
           "System.Data.SQLite": "1.0.119",
           "System.Data.SQLite.Linq": "1.0.119"
