@@ -12,6 +12,8 @@ namespace GerenciamentoDeEstoque
 {
     public partial class CadastroProdutos : Form
     {
+        private Database database = new Database();
+        private ProdutosFrom produtosFrom = new ProdutosFrom();
         public CadastroProdutos()
         {
             InitializeComponent();
@@ -40,7 +42,6 @@ namespace GerenciamentoDeEstoque
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
-            // caixa do cadastro produto
         }
 
         private void label4_Click(object sender, EventArgs e)
@@ -65,7 +66,28 @@ namespace GerenciamentoDeEstoque
 
         private void button1_Click(object sender, EventArgs e)
         {
-            // botao confirmar
+            if (!(string.IsNullOrEmpty(textBoxCodigo.Text) || string.IsNullOrEmpty(textBoxNome.Text) || numericUpDownQuantidade.Value <= 0))
+            {
+                decimal preco = decimal.Parse(textBoxPreco.Text);
+                int quantidade = (int)numericUpDownQuantidade.Value;
+                string nome = textBoxNome.Text.Trim();
+                int codigo = int.Parse(textBoxCodigo.Text);
+                if (!(preco <= 0))
+                {
+                    Produto produto = new Produto(nome, quantidade, codigo, preco);
+                    database.CadastrarProduto(produto);
+                    this.Close();
+                    MessageBox.Show("Produto cadastrado!", "Sucesso", MessageBoxButtons.OK);
+                }
+                else
+                {
+                    MessageBox.Show("Voce deve colocar um preco valido!", "Erro", MessageBoxButtons.OK);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Voce deve preencher todos os campos!", "Erro", MessageBoxButtons.OK);
+            }
         }
 
         private void CadastroProdutos_Load(object sender, EventArgs e)
@@ -77,5 +99,27 @@ namespace GerenciamentoDeEstoque
         {
             this.Close();
         }
+
+        private void textBoxPreco_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != ',' && e.KeyChar != '.')
+            {
+                e.Handled = true;
+            }
+
+            if ((e.KeyChar == ',' || e.KeyChar == '.') && (sender as TextBox).Text.Contains(","))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textBoxCodigo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
     }
 }

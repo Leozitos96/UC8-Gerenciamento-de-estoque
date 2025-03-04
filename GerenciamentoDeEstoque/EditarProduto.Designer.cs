@@ -34,16 +34,17 @@
             label6 = new Label();
             button2 = new Button();
             button1 = new Button();
-            textBox4 = new TextBox();
-            textBox3 = new TextBox();
-            textBox2 = new TextBox();
-            textBox1 = new TextBox();
+            textBoxCodigo = new TextBox();
+            textBoxPreco = new TextBox();
+            textBoxNome = new TextBox();
             label5 = new Label();
             label4 = new Label();
             label3 = new Label();
             label2 = new Label();
             label1 = new Label();
+            numericUpDownQuantidade = new NumericUpDown();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownQuantidade).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -83,60 +84,59 @@
             button2.BackColor = Color.FromArgb(178, 201, 171);
             button2.Cursor = Cursors.Hand;
             button2.FlatAppearance.BorderSize = 0;
+            button2.FlatStyle = FlatStyle.Flat;
             button2.Location = new Point(265, 235);
             button2.Name = "button2";
             button2.Size = new Size(92, 29);
             button2.TabIndex = 22;
             button2.Text = "Cancelar";
             button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
             // 
             // button1
             // 
             button1.BackColor = Color.FromArgb(178, 201, 171);
             button1.Cursor = Cursors.Hand;
             button1.FlatAppearance.BorderSize = 0;
+            button1.FlatStyle = FlatStyle.Flat;
             button1.Location = new Point(383, 235);
             button1.Name = "button1";
             button1.Size = new Size(92, 29);
             button1.TabIndex = 21;
             button1.Text = "Finalizar";
             button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
-            // textBox4
+            // textBoxCodigo
             // 
-            textBox4.BorderStyle = BorderStyle.FixedSingle;
-            textBox4.Location = new Point(381, 161);
-            textBox4.Name = "textBox4";
-            textBox4.ReadOnly = true;
-            textBox4.Size = new Size(138, 27);
-            textBox4.TabIndex = 20;
+            textBoxCodigo.BorderStyle = BorderStyle.FixedSingle;
+            textBoxCodigo.Cursor = Cursors.No;
+            textBoxCodigo.Enabled = false;
+            textBoxCodigo.Location = new Point(381, 161);
+            textBoxCodigo.Name = "textBoxCodigo";
+            textBoxCodigo.ReadOnly = true;
+            textBoxCodigo.Size = new Size(138, 27);
+            textBoxCodigo.TabIndex = 20;
             // 
-            // textBox3
+            // textBoxPreco
             // 
-            textBox3.BorderStyle = BorderStyle.FixedSingle;
-            textBox3.Cursor = Cursors.IBeam;
-            textBox3.Location = new Point(220, 161);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(138, 27);
-            textBox3.TabIndex = 19;
+            textBoxPreco.BorderStyle = BorderStyle.FixedSingle;
+            textBoxPreco.Cursor = Cursors.IBeam;
+            textBoxPreco.Location = new Point(220, 161);
+            textBoxPreco.Name = "textBoxPreco";
+            textBoxPreco.Size = new Size(138, 27);
+            textBoxPreco.TabIndex = 19;
             // 
-            // textBox2
+            // textBoxNome
             // 
-            textBox2.BorderStyle = BorderStyle.FixedSingle;
-            textBox2.Cursor = Cursors.IBeam;
-            textBox2.Location = new Point(381, 104);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(138, 27);
-            textBox2.TabIndex = 18;
-            // 
-            // textBox1
-            // 
-            textBox1.BorderStyle = BorderStyle.FixedSingle;
-            textBox1.Location = new Point(220, 104);
-            textBox1.Name = "textBox1";
-            textBox1.ReadOnly = true;
-            textBox1.Size = new Size(138, 27);
-            textBox1.TabIndex = 17;
+            textBoxNome.BorderStyle = BorderStyle.FixedSingle;
+            textBoxNome.Cursor = Cursors.No;
+            textBoxNome.Enabled = false;
+            textBoxNome.Location = new Point(220, 104);
+            textBoxNome.Name = "textBoxNome";
+            textBoxNome.ReadOnly = true;
+            textBoxNome.Size = new Size(138, 27);
+            textBoxNome.TabIndex = 17;
             // 
             // label5
             // 
@@ -194,18 +194,27 @@
             label1.TabIndex = 12;
             label1.Text = "Edite os campos!";
             // 
+            // numericUpDownQuantidade
+            // 
+            numericUpDownQuantidade.BorderStyle = BorderStyle.FixedSingle;
+            numericUpDownQuantidade.Location = new Point(381, 102);
+            numericUpDownQuantidade.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
+            numericUpDownQuantidade.Name = "numericUpDownQuantidade";
+            numericUpDownQuantidade.Size = new Size(138, 27);
+            numericUpDownQuantidade.TabIndex = 24;
+            // 
             // EditarProduto
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(539, 302);
+            Controls.Add(numericUpDownQuantidade);
             Controls.Add(panel1);
             Controls.Add(button2);
             Controls.Add(button1);
-            Controls.Add(textBox4);
-            Controls.Add(textBox3);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
+            Controls.Add(textBoxCodigo);
+            Controls.Add(textBoxPreco);
+            Controls.Add(textBoxNome);
             Controls.Add(label5);
             Controls.Add(label4);
             Controls.Add(label3);
@@ -216,6 +225,7 @@
             Text = "EditarProduto";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownQuantidade).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -227,14 +237,14 @@
         private Label label6;
         private Button button2;
         private Button button1;
-        private TextBox textBox4;
-        private TextBox textBox3;
-        private TextBox textBox2;
-        private TextBox textBox1;
+        private TextBox textBoxCodigo;
+        private TextBox textBoxPreco;
+        private TextBox textBoxNome;
         private Label label5;
         private Label label4;
         private Label label3;
         private Label label2;
         private Label label1;
+        private NumericUpDown numericUpDownQuantidade;
     }
 }

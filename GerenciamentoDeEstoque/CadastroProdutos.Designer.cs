@@ -34,16 +34,17 @@
             label3 = new Label();
             label4 = new Label();
             label5 = new Label();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            textBox3 = new TextBox();
-            textBox4 = new TextBox();
-            button1 = new Button();
-            button2 = new Button();
+            textBoxNome = new TextBox();
+            textBoxPreco = new TextBox();
+            textBoxCodigo = new TextBox();
+            buttonFinalizar = new Button();
+            buttonCancelar = new Button();
             panel1 = new Panel();
             panel2 = new Panel();
             label6 = new Label();
+            numericUpDownQuantidade = new NumericUpDown();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownQuantidade).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -107,73 +108,65 @@
             label5.Text = "Codigo";
             label5.Click += label5_Click;
             // 
-            // textBox1
+            // textBoxNome
             // 
-            textBox1.BorderStyle = BorderStyle.FixedSingle;
-            textBox1.Cursor = Cursors.IBeam;
-            textBox1.Location = new Point(220, 105);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(138, 27);
-            textBox1.TabIndex = 5;
-            textBox1.TextChanged += textBox1_TextChanged;
+            textBoxNome.BorderStyle = BorderStyle.FixedSingle;
+            textBoxNome.Cursor = Cursors.IBeam;
+            textBoxNome.Location = new Point(220, 105);
+            textBoxNome.Name = "textBoxNome";
+            textBoxNome.Size = new Size(138, 27);
+            textBoxNome.TabIndex = 5;
+            textBoxNome.TextChanged += textBox1_TextChanged;
             // 
-            // textBox2
+            // textBoxPreco
             // 
-            textBox2.BorderStyle = BorderStyle.FixedSingle;
-            textBox2.Cursor = Cursors.IBeam;
-            textBox2.Location = new Point(381, 105);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(138, 27);
-            textBox2.TabIndex = 6;
-            textBox2.TextChanged += textBox2_TextChanged;
+            textBoxPreco.BorderStyle = BorderStyle.FixedSingle;
+            textBoxPreco.Cursor = Cursors.IBeam;
+            textBoxPreco.Location = new Point(220, 162);
+            textBoxPreco.Name = "textBoxPreco";
+            textBoxPreco.Size = new Size(138, 27);
+            textBoxPreco.TabIndex = 7;
+            textBoxPreco.TextChanged += textBox3_TextChanged;
+            textBoxPreco.KeyPress += textBoxPreco_KeyPress;
             // 
-            // textBox3
+            // textBoxCodigo
             // 
-            textBox3.BorderStyle = BorderStyle.FixedSingle;
-            textBox3.Cursor = Cursors.IBeam;
-            textBox3.Location = new Point(220, 162);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(138, 27);
-            textBox3.TabIndex = 7;
-            textBox3.TextChanged += textBox3_TextChanged;
+            textBoxCodigo.BorderStyle = BorderStyle.FixedSingle;
+            textBoxCodigo.Cursor = Cursors.IBeam;
+            textBoxCodigo.Location = new Point(381, 162);
+            textBoxCodigo.Name = "textBoxCodigo";
+            textBoxCodigo.Size = new Size(138, 27);
+            textBoxCodigo.TabIndex = 8;
+            textBoxCodigo.TextChanged += textBox4_TextChanged;
+            textBoxCodigo.KeyPress += textBoxCodigo_KeyPress;
             // 
-            // textBox4
+            // buttonFinalizar
             // 
-            textBox4.BorderStyle = BorderStyle.FixedSingle;
-            textBox4.Cursor = Cursors.IBeam;
-            textBox4.Location = new Point(381, 162);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(138, 27);
-            textBox4.TabIndex = 8;
-            textBox4.TextChanged += textBox4_TextChanged;
+            buttonFinalizar.BackColor = Color.FromArgb(178, 201, 171);
+            buttonFinalizar.Cursor = Cursors.Hand;
+            buttonFinalizar.FlatAppearance.BorderSize = 0;
+            buttonFinalizar.FlatStyle = FlatStyle.Flat;
+            buttonFinalizar.Location = new Point(383, 236);
+            buttonFinalizar.Name = "buttonFinalizar";
+            buttonFinalizar.Size = new Size(92, 29);
+            buttonFinalizar.TabIndex = 9;
+            buttonFinalizar.Text = "Finalizar";
+            buttonFinalizar.UseVisualStyleBackColor = false;
+            buttonFinalizar.Click += button1_Click;
             // 
-            // button1
+            // buttonCancelar
             // 
-            button1.BackColor = Color.FromArgb(178, 201, 171);
-            button1.Cursor = Cursors.Hand;
-            button1.FlatAppearance.BorderSize = 0;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Location = new Point(383, 236);
-            button1.Name = "button1";
-            button1.Size = new Size(92, 29);
-            button1.TabIndex = 9;
-            button1.Text = "Finalizar";
-            button1.UseVisualStyleBackColor = false;
-            button1.Click += button1_Click;
-            // 
-            // button2
-            // 
-            button2.BackColor = Color.FromArgb(178, 201, 171);
-            button2.Cursor = Cursors.Hand;
-            button2.FlatAppearance.BorderSize = 0;
-            button2.FlatStyle = FlatStyle.Flat;
-            button2.Location = new Point(265, 236);
-            button2.Name = "button2";
-            button2.Size = new Size(92, 29);
-            button2.TabIndex = 10;
-            button2.Text = "Cancelar";
-            button2.UseVisualStyleBackColor = false;
-            button2.Click += button2_Click;
+            buttonCancelar.BackColor = Color.FromArgb(178, 201, 171);
+            buttonCancelar.Cursor = Cursors.Hand;
+            buttonCancelar.FlatAppearance.BorderSize = 0;
+            buttonCancelar.FlatStyle = FlatStyle.Flat;
+            buttonCancelar.Location = new Point(265, 236);
+            buttonCancelar.Name = "buttonCancelar";
+            buttonCancelar.Size = new Size(92, 29);
+            buttonCancelar.TabIndex = 10;
+            buttonCancelar.Text = "Cancelar";
+            buttonCancelar.UseVisualStyleBackColor = false;
+            buttonCancelar.Click += button2_Click;
             // 
             // panel1
             // 
@@ -207,19 +200,28 @@
             label6.TabIndex = 12;
             label6.Text = "Adicionar produto";
             // 
+            // numericUpDownQuantidade
+            // 
+            numericUpDownQuantidade.BorderStyle = BorderStyle.FixedSingle;
+            numericUpDownQuantidade.Location = new Point(381, 103);
+            numericUpDownQuantidade.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
+            numericUpDownQuantidade.Name = "numericUpDownQuantidade";
+            numericUpDownQuantidade.Size = new Size(138, 27);
+            numericUpDownQuantidade.TabIndex = 12;
+            // 
             // CadastroProdutos
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(539, 302);
+            Controls.Add(numericUpDownQuantidade);
             Controls.Add(panel1);
-            Controls.Add(button2);
-            Controls.Add(button1);
-            Controls.Add(textBox4);
-            Controls.Add(textBox3);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
+            Controls.Add(buttonCancelar);
+            Controls.Add(buttonFinalizar);
+            Controls.Add(textBoxCodigo);
+            Controls.Add(textBoxPreco);
+            Controls.Add(textBoxNome);
             Controls.Add(label5);
             Controls.Add(label4);
             Controls.Add(label3);
@@ -231,6 +233,7 @@
             Load += CadastroProdutos_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownQuantidade).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -242,14 +245,14 @@
         private Label label3;
         private Label label4;
         private Label label5;
-        private TextBox textBox1;
-        private TextBox textBox2;
-        private TextBox textBox3;
-        private TextBox textBox4;
-        private Button button1;
-        private Button button2;
+        private TextBox textBoxNome;
+        private TextBox textBoxPreco;
+        private TextBox textBoxCodigo;
+        private Button buttonFinalizar;
+        private Button buttonCancelar;
         private Panel panel1;
         private Label label6;
         private Panel panel2;
+        private NumericUpDown numericUpDownQuantidade;
     }
 }
