@@ -15,6 +15,7 @@ namespace GerenciamentoDeEstoque
         public CadastroProdutos()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -65,6 +66,16 @@ namespace GerenciamentoDeEstoque
         private void button1_Click(object sender, EventArgs e)
         {
             // botao confirmar
+        }
+
+        private void CadastroProdutos_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

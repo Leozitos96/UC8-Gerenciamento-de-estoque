@@ -29,150 +29,231 @@ namespace GerenciamentoDeEstoque
         /// </summary>
         private void InitializeComponent()
         {
-            panel1 = new Panel();
-            button4 = new Button();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PainelLoginAdm));
+            panelBotoes = new Panel();
+            buttonSair = new Button();
+            buttonVendas = new Button();
+            buttonProdutos = new Button();
+            buttonFuncionarios = new Button();
+            buttonHome = new Button();
+            panel3 = new Panel();
             panel2 = new Panel();
-            button3 = new Button();
-            button1 = new Button();
-            button2 = new Button();
-            label3 = new Label();
             label2 = new Label();
             label1 = new Label();
-            label4 = new Label();
-            panel1.SuspendLayout();
+            panelFormAtivo = new Panel();
+            panelBotoes.SuspendLayout();
+            panel2.SuspendLayout();
             SuspendLayout();
             // 
-            // panel1
+            // panelBotoes
             // 
-            panel1.BackColor = SystemColors.MenuHighlight;
-            panel1.Controls.Add(button4);
-            panel1.Controls.Add(panel2);
-            panel1.Controls.Add(button3);
-            panel1.Controls.Add(button1);
-            panel1.Controls.Add(button2);
-            panel1.Controls.Add(label3);
-            panel1.Controls.Add(label2);
-            panel1.Controls.Add(label1);
-            panel1.Controls.Add(label4);
-            panel1.Location = new Point(1, 1);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(806, 627);
-            panel1.TabIndex = 0;
+            panelBotoes.BackColor = Color.FromArgb(102, 106, 134);
+            panelBotoes.Controls.Add(buttonSair);
+            panelBotoes.Controls.Add(buttonVendas);
+            panelBotoes.Controls.Add(buttonProdutos);
+            panelBotoes.Controls.Add(buttonFuncionarios);
+            panelBotoes.Controls.Add(buttonHome);
+            panelBotoes.Controls.Add(panel3);
+            panelBotoes.Dock = DockStyle.Left;
+            panelBotoes.Location = new Point(0, 0);
+            panelBotoes.Name = "panelBotoes";
+            panelBotoes.Size = new Size(209, 721);
+            panelBotoes.TabIndex = 1;
+            panelBotoes.Paint += panel1_Paint;
             // 
-            // button4
+            // buttonSair
             // 
-            button4.Location = new Point(29, 235);
-            button4.Name = "button4";
-            button4.Size = new Size(94, 29);
-            button4.TabIndex = 12;
-            button4.Text = "Vendas";
-            button4.UseVisualStyleBackColor = true;
-            button4.Click += button4_Click;
+            buttonSair.BackColor = Color.Transparent;
+            buttonSair.BackgroundImageLayout = ImageLayout.Stretch;
+            buttonSair.Dock = DockStyle.Bottom;
+            buttonSair.FlatAppearance.BorderSize = 0;
+            buttonSair.FlatAppearance.MouseDownBackColor = Color.FromArgb(146, 182, 177);
+            buttonSair.FlatAppearance.MouseOverBackColor = Color.FromArgb(120, 138, 163);
+            buttonSair.FlatStyle = FlatStyle.Flat;
+            buttonSair.Font = new Font("Arial", 12F, FontStyle.Bold);
+            buttonSair.ForeColor = SystemColors.ControlText;
+            buttonSair.Image = (Image)resources.GetObject("buttonSair.Image");
+            buttonSair.ImageAlign = ContentAlignment.MiddleRight;
+            buttonSair.Location = new Point(0, 643);
+            buttonSair.Name = "buttonSair";
+            buttonSair.Size = new Size(209, 78);
+            buttonSair.TabIndex = 12;
+            buttonSair.Text = "Sair";
+            buttonSair.TextImageRelation = TextImageRelation.ImageBeforeText;
+            buttonSair.UseVisualStyleBackColor = false;
+            // 
+            // buttonVendas
+            // 
+            buttonVendas.BackColor = Color.Transparent;
+            buttonVendas.BackgroundImageLayout = ImageLayout.Stretch;
+            buttonVendas.Dock = DockStyle.Top;
+            buttonVendas.FlatAppearance.BorderSize = 0;
+            buttonVendas.FlatAppearance.CheckedBackColor = Color.FromArgb(255, 183, 255);
+            buttonVendas.FlatAppearance.MouseDownBackColor = Color.FromArgb(146, 182, 177);
+            buttonVendas.FlatAppearance.MouseOverBackColor = Color.FromArgb(120, 138, 163);
+            buttonVendas.FlatStyle = FlatStyle.Flat;
+            buttonVendas.Font = new Font("Arial", 12F, FontStyle.Bold);
+            buttonVendas.ForeColor = SystemColors.ControlText;
+            buttonVendas.Image = (Image)resources.GetObject("buttonVendas.Image");
+            buttonVendas.ImageAlign = ContentAlignment.MiddleRight;
+            buttonVendas.Location = new Point(0, 318);
+            buttonVendas.Name = "buttonVendas";
+            buttonVendas.Size = new Size(209, 66);
+            buttonVendas.TabIndex = 11;
+            buttonVendas.Text = "Pedidos";
+            buttonVendas.TextImageRelation = TextImageRelation.ImageBeforeText;
+            buttonVendas.UseVisualStyleBackColor = false;
+            buttonVendas.Click += buttonVendas_Click;
+            // 
+            // buttonProdutos
+            // 
+            buttonProdutos.BackColor = Color.Transparent;
+            buttonProdutos.BackgroundImageLayout = ImageLayout.Stretch;
+            buttonProdutos.Dock = DockStyle.Top;
+            buttonProdutos.FlatAppearance.BorderSize = 0;
+            buttonProdutos.FlatAppearance.CheckedBackColor = Color.FromArgb(255, 183, 255);
+            buttonProdutos.FlatAppearance.MouseDownBackColor = Color.FromArgb(146, 182, 177);
+            buttonProdutos.FlatAppearance.MouseOverBackColor = Color.FromArgb(120, 138, 163);
+            buttonProdutos.FlatStyle = FlatStyle.Flat;
+            buttonProdutos.Font = new Font("Arial", 12F, FontStyle.Bold);
+            buttonProdutos.ForeColor = SystemColors.ControlText;
+            buttonProdutos.Image = (Image)resources.GetObject("buttonProdutos.Image");
+            buttonProdutos.ImageAlign = ContentAlignment.MiddleRight;
+            buttonProdutos.Location = new Point(0, 252);
+            buttonProdutos.Name = "buttonProdutos";
+            buttonProdutos.Size = new Size(209, 66);
+            buttonProdutos.TabIndex = 10;
+            buttonProdutos.Text = "Produtos";
+            buttonProdutos.TextImageRelation = TextImageRelation.ImageBeforeText;
+            buttonProdutos.UseVisualStyleBackColor = false;
+            buttonProdutos.Click += buttonProdutos_Click;
+            // 
+            // buttonFuncionarios
+            // 
+            buttonFuncionarios.BackColor = Color.Transparent;
+            buttonFuncionarios.BackgroundImageLayout = ImageLayout.Stretch;
+            buttonFuncionarios.Dock = DockStyle.Top;
+            buttonFuncionarios.FlatAppearance.BorderSize = 0;
+            buttonFuncionarios.FlatAppearance.CheckedBackColor = Color.FromArgb(255, 183, 255);
+            buttonFuncionarios.FlatAppearance.MouseDownBackColor = Color.FromArgb(146, 182, 177);
+            buttonFuncionarios.FlatAppearance.MouseOverBackColor = Color.FromArgb(120, 138, 163);
+            buttonFuncionarios.FlatStyle = FlatStyle.Flat;
+            buttonFuncionarios.Font = new Font("Arial", 12F, FontStyle.Bold);
+            buttonFuncionarios.ForeColor = SystemColors.ControlText;
+            buttonFuncionarios.Image = (Image)resources.GetObject("buttonFuncionarios.Image");
+            buttonFuncionarios.ImageAlign = ContentAlignment.MiddleRight;
+            buttonFuncionarios.Location = new Point(0, 186);
+            buttonFuncionarios.Name = "buttonFuncionarios";
+            buttonFuncionarios.Size = new Size(209, 66);
+            buttonFuncionarios.TabIndex = 9;
+            buttonFuncionarios.Text = "Funcionarios";
+            buttonFuncionarios.TextImageRelation = TextImageRelation.ImageBeforeText;
+            buttonFuncionarios.UseVisualStyleBackColor = false;
+            buttonFuncionarios.Click += buttonFuncionarios_Click;
+            // 
+            // buttonHome
+            // 
+            buttonHome.BackColor = Color.Transparent;
+            buttonHome.BackgroundImageLayout = ImageLayout.Stretch;
+            buttonHome.Dock = DockStyle.Top;
+            buttonHome.FlatAppearance.BorderSize = 0;
+            buttonHome.FlatAppearance.CheckedBackColor = Color.FromArgb(255, 183, 255);
+            buttonHome.FlatAppearance.MouseDownBackColor = Color.FromArgb(146, 182, 177);
+            buttonHome.FlatAppearance.MouseOverBackColor = Color.FromArgb(120, 138, 163);
+            buttonHome.FlatStyle = FlatStyle.Flat;
+            buttonHome.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            buttonHome.ForeColor = SystemColors.ControlText;
+            buttonHome.Image = (Image)resources.GetObject("buttonHome.Image");
+            buttonHome.ImageAlign = ContentAlignment.MiddleRight;
+            buttonHome.Location = new Point(0, 120);
+            buttonHome.Name = "buttonHome";
+            buttonHome.Size = new Size(209, 66);
+            buttonHome.TabIndex = 8;
+            buttonHome.Text = "Inicio";
+            buttonHome.TextImageRelation = TextImageRelation.ImageBeforeText;
+            buttonHome.UseVisualStyleBackColor = false;
+            buttonHome.Click += buttonHome_Click;
+            // 
+            // panel3
+            // 
+            panel3.BackColor = Color.Transparent;
+            panel3.BackgroundImage = (Image)resources.GetObject("panel3.BackgroundImage");
+            panel3.BackgroundImageLayout = ImageLayout.Zoom;
+            panel3.Dock = DockStyle.Top;
+            panel3.Location = new Point(0, 0);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(209, 120);
+            panel3.TabIndex = 3;
             // 
             // panel2
             // 
-            panel2.BackColor = SystemColors.ControlDark;
-            panel2.Location = new Point(152, 120);
+            panel2.BackColor = Color.FromArgb(120, 138, 163);
+            panel2.Controls.Add(label2);
+            panel2.Controls.Add(label1);
+            panel2.Location = new Point(0, 0);
             panel2.Name = "panel2";
-            panel2.Size = new Size(651, 507);
-            panel2.TabIndex = 9;
-            panel2.Paint += panel2_Paint;
-            // 
-            // button3
-            // 
-            button3.Location = new Point(29, 200);
-            button3.Name = "button3";
-            button3.Size = new Size(94, 29);
-            button3.TabIndex = 11;
-            button3.Text = "Estoque";
-            button3.UseVisualStyleBackColor = true;
-            button3.Click += button3_Click;
-            // 
-            // button1
-            // 
-            button1.Location = new Point(29, 576);
-            button1.Name = "button1";
-            button1.Size = new Size(94, 29);
-            button1.TabIndex = 8;
-            button1.Text = "Sair";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
-            // 
-            // button2
-            // 
-            button2.Location = new Point(29, 165);
-            button2.Name = "button2";
-            button2.Size = new Size(94, 29);
-            button2.TabIndex = 10;
-            button2.Text = "Funcionario";
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(168, 59);
-            label3.Name = "label3";
-            label3.Size = new Size(139, 20);
-            label3.TabIndex = 7;
-            label3.Text = "Bom-Vindo Usuario";
-            label3.Click += label3_Click;
+            panel2.Size = new Size(1006, 48);
+            panel2.TabIndex = 13;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(708, 52);
+            label2.Font = new Font("Arial", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.Location = new Point(570, 9);
             label2.Name = "label2";
-            label2.Size = new Size(56, 20);
-            label2.TabIndex = 6;
-            label2.Text = "Funcao";
-            label2.Click += label2_Click;
+            label2.Size = new Size(155, 27);
+            label2.TabIndex = 1;
+            label2.Text = "Cargo: cargo";
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(708, 28);
+            label1.Font = new Font("Arial", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(215, 9);
             label1.Name = "label1";
-            label1.Size = new Size(59, 20);
-            label1.TabIndex = 5;
-            label1.Text = "Usuario";
-            label1.Click += label1_Click;
+            label1.Size = new Size(235, 27);
+            label1.TabIndex = 0;
+            label1.Text = "Bem vindo, usuario!";
             // 
-            // label4
+            // panelFormAtivo
             // 
-            label4.AutoSize = true;
-            label4.Location = new Point(42, 52);
-            label4.Name = "label4";
-            label4.Size = new Size(43, 20);
-            label4.TabIndex = 0;
-            label4.Text = "Logo";
-            label4.Click += label4_Click;
+            panelFormAtivo.Location = new Point(209, 48);
+            panelFormAtivo.Name = "panelFormAtivo";
+            panelFormAtivo.Size = new Size(797, 673);
+            panelFormAtivo.TabIndex = 13;
             // 
             // PainelLoginAdm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.ControlDark;
-            ClientSize = new Size(805, 630);
-            Controls.Add(panel1);
+            BackColor = Color.WhiteSmoke;
+            ClientSize = new Size(1006, 721);
+            Controls.Add(panelFormAtivo);
+            Controls.Add(panelBotoes);
+            Controls.Add(panel2);
+            FormBorderStyle = FormBorderStyle.FixedDialog;
+            MaximizeBox = false;
             Name = "PainelLoginAdm";
             Text = "PainelLoginAdm";
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
+            Load += PainelLoginAdm_Load;
+            panelBotoes.ResumeLayout(false);
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private Panel panel1;
-        private Label label4;
-        private Label label1;
-        private Label label3;
-        private Label label2;
+        private Panel panelBotoes;
+        private Panel panel3;
+        private Button buttonHome;
+        private Button buttonProdutos;
+        private Button buttonFuncionarios;
+        private Button buttonSair;
+        private Button buttonVendas;
         private Panel panel2;
-        private Button button1;
-        private Button button4;
-        private Button button3;
-        private Button button2;
+        private Label label2;
+        private Label label1;
+        private Panel panelFormAtivo;
     }
 }

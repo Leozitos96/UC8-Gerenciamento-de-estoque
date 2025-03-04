@@ -61,6 +61,11 @@ namespace GerenciamentoDeEstoque
         {
 
         }
+
+        private void buttonVendas_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 
