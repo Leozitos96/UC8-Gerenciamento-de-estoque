@@ -56,6 +56,7 @@
             // 
             // flowProdutos
             // 
+            flowProdutos.AutoScroll = true;
             flowProdutos.BackColor = Color.WhiteSmoke;
             flowProdutos.Dock = DockStyle.Fill;
             flowProdutos.Location = new Point(0, 56);
