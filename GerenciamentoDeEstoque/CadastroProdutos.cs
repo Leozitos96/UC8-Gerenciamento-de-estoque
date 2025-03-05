@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Data.Sqlite;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -64,6 +65,28 @@ namespace GerenciamentoDeEstoque
             // caixa de registro de vendas
         }
 
+        /*Verifica no banco se um codigo ja esta cadastrado ou nao*/
+        private bool CodigoExistente(string codigo)
+        {
+            bool codigoExiste = false;
+
+            string select = "SELECT COUNT(*) FROM Produtos WHERE Codigo = @Codigo";
+
+            using (SqliteConnection conexao = new SqliteConnection("Data Source=database.db"))
+            {
+                conexao.Open();
+                using (SqliteCommand cmd = new SqliteCommand(select, conexao))
+                {
+                    cmd.Parameters.AddWithValue("@Codigo", codigo);
+                    long count = (long)cmd.ExecuteScalar();
+                    codigoExiste = count > 0;
+                }
+            }
+            return codigoExiste;
+        }
+
+        /*Verifica se nao existe nenhuma lacuna nas textbox e verifica se a quantidade e preco sao maiores que 0,
+         sendo assim ele cadastra o produto*/
         private void button1_Click(object sender, EventArgs e)
         {
             if (!(string.IsNullOrEmpty(textBoxCodigo.Text) || string.IsNullOrEmpty(textBoxNome.Text) || numericUpDownQuantidade.Value <= 0))
@@ -71,13 +94,20 @@ namespace GerenciamentoDeEstoque
                 decimal preco = decimal.Parse(textBoxPreco.Text);
                 int quantidade = (int)numericUpDownQuantidade.Value;
                 string nome = textBoxNome.Text.Trim();
-                int codigo = int.Parse(textBoxCodigo.Text);
+                string codigo = textBoxCodigo.Text;
                 if (!(preco <= 0))
                 {
-                    Produto produto = new Produto(nome, quantidade, codigo, preco);
-                    database.CadastrarProduto(produto);
-                    this.Close();
-                    MessageBox.Show("Produto cadastrado!", "Sucesso", MessageBoxButtons.OK);
+                    if (!CodigoExistente(codigo.ToString()))
+                    {
+                        Produto produto = new Produto(nome, quantidade, int.Parse(codigo), preco);
+                        database.CadastrarProduto(produto);
+                        this.Close();
+                        MessageBox.Show("Produto cadastrado!", "Sucesso", MessageBoxButtons.OK);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Codigo ja existente, coloque outro codigo!", "Erro", MessageBoxButtons.OK);
+                    }
                 }
                 else
                 {
@@ -94,12 +124,14 @@ namespace GerenciamentoDeEstoque
         {
 
         }
-
+        /*Fecha o form*/
         private void button2_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        /*Verifica no textBoxPreco quais teclas ele pressionou dentro no campo, CANCELANDO caracteres e deixando apenas numeros,
+         virgula, e ponto podendo ser pressionado, e se ele colocar uma virgula, transforma em .*/
         private void textBoxPreco_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != ',' && e.KeyChar != '.')
@@ -113,6 +145,8 @@ namespace GerenciamentoDeEstoque
             }
         }
 
+        /*Verifica no textBoxCodigo quais teclas ele pressionou dentro no campo,
+         * CANCELANDO caracteres e deixando apenas numeros*/
         private void textBoxCodigo_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))

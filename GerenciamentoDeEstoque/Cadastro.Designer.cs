@@ -32,19 +32,17 @@ namespace GerenciamentoDeEstoque
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Cadastro));
             label1 = new Label();
             button2 = new Button();
-            textBox2 = new TextBox();
-            textBox1 = new TextBox();
+            textBoxSenha = new TextBox();
+            textBoxUsuario = new TextBox();
             label3 = new Label();
             label2 = new Label();
             panel1 = new Panel();
             panel2 = new Panel();
-            textBox3 = new TextBox();
-            textBox4 = new TextBox();
-            label4 = new Label();
+            textBoxConfirmarSenha = new TextBox();
             label5 = new Label();
-            textBox5 = new TextBox();
-            label6 = new Label();
             button1 = new Button();
+            label4 = new Label();
+            comboBox1 = new ComboBox();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -67,34 +65,35 @@ namespace GerenciamentoDeEstoque
             button2.FlatAppearance.BorderSize = 0;
             button2.FlatStyle = FlatStyle.Flat;
             button2.Font = new Font("Arial", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button2.Location = new Point(806, 528);
+            button2.Location = new Point(795, 511);
             button2.Name = "button2";
             button2.Size = new Size(94, 29);
             button2.TabIndex = 16;
             button2.Text = "Finalizar";
             button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
             // 
-            // textBox2
+            // textBoxSenha
             // 
-            textBox2.Anchor = AnchorStyles.None;
-            textBox2.BackColor = Color.White;
-            textBox2.BorderStyle = BorderStyle.FixedSingle;
-            textBox2.Cursor = Cursors.IBeam;
-            textBox2.Location = new Point(661, 202);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(270, 27);
-            textBox2.TabIndex = 15;
+            textBoxSenha.Anchor = AnchorStyles.None;
+            textBoxSenha.BackColor = Color.White;
+            textBoxSenha.BorderStyle = BorderStyle.FixedSingle;
+            textBoxSenha.Cursor = Cursors.IBeam;
+            textBoxSenha.Location = new Point(659, 274);
+            textBoxSenha.Name = "textBoxSenha";
+            textBoxSenha.Size = new Size(270, 27);
+            textBoxSenha.TabIndex = 15;
             // 
-            // textBox1
+            // textBoxUsuario
             // 
-            textBox1.Anchor = AnchorStyles.None;
-            textBox1.BackColor = Color.White;
-            textBox1.BorderStyle = BorderStyle.FixedSingle;
-            textBox1.Cursor = Cursors.IBeam;
-            textBox1.Location = new Point(661, 130);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(270, 27);
-            textBox1.TabIndex = 14;
+            textBoxUsuario.Anchor = AnchorStyles.None;
+            textBoxUsuario.BackColor = Color.White;
+            textBoxUsuario.BorderStyle = BorderStyle.FixedSingle;
+            textBoxUsuario.Cursor = Cursors.IBeam;
+            textBoxUsuario.Location = new Point(659, 202);
+            textBoxUsuario.Name = "textBoxUsuario";
+            textBoxUsuario.Size = new Size(270, 27);
+            textBoxUsuario.TabIndex = 14;
             // 
             // label3
             // 
@@ -102,7 +101,7 @@ namespace GerenciamentoDeEstoque
             label3.AutoSize = true;
             label3.Font = new Font("Arial", 13.8F, FontStyle.Bold);
             label3.ImageAlign = ContentAlignment.BottomLeft;
-            label3.Location = new Point(661, 172);
+            label3.Location = new Point(659, 244);
             label3.Name = "label3";
             label3.Size = new Size(83, 27);
             label3.TabIndex = 11;
@@ -116,7 +115,7 @@ namespace GerenciamentoDeEstoque
             label2.Font = new Font("Arial", 13.8F, FontStyle.Bold);
             label2.ForeColor = SystemColors.ControlText;
             label2.ImageAlign = ContentAlignment.MiddleLeft;
-            label2.Location = new Point(661, 100);
+            label2.Location = new Point(659, 172);
             label2.Name = "label2";
             label2.Size = new Size(100, 27);
             label2.TabIndex = 10;
@@ -144,40 +143,16 @@ namespace GerenciamentoDeEstoque
             panel2.Size = new Size(256, 256);
             panel2.TabIndex = 1;
             // 
-            // textBox3
+            // textBoxConfirmarSenha
             // 
-            textBox3.Anchor = AnchorStyles.None;
-            textBox3.BackColor = Color.White;
-            textBox3.BorderStyle = BorderStyle.FixedSingle;
-            textBox3.Cursor = Cursors.IBeam;
-            textBox3.Location = new Point(661, 358);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(270, 27);
-            textBox3.TabIndex = 22;
-            // 
-            // textBox4
-            // 
-            textBox4.Anchor = AnchorStyles.None;
-            textBox4.BackColor = Color.White;
-            textBox4.BorderStyle = BorderStyle.FixedSingle;
-            textBox4.Cursor = Cursors.IBeam;
-            textBox4.Location = new Point(661, 279);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(270, 27);
-            textBox4.TabIndex = 21;
-            // 
-            // label4
-            // 
-            label4.Anchor = AnchorStyles.None;
-            label4.AutoSize = true;
-            label4.Font = new Font("Arial", 13.8F, FontStyle.Bold);
-            label4.ImageAlign = ContentAlignment.BottomLeft;
-            label4.Location = new Point(661, 328);
-            label4.Name = "label4";
-            label4.Size = new Size(73, 27);
-            label4.TabIndex = 20;
-            label4.Text = "Email";
-            label4.TextAlign = ContentAlignment.MiddleCenter;
+            textBoxConfirmarSenha.Anchor = AnchorStyles.None;
+            textBoxConfirmarSenha.BackColor = Color.White;
+            textBoxConfirmarSenha.BorderStyle = BorderStyle.FixedSingle;
+            textBoxConfirmarSenha.Cursor = Cursors.IBeam;
+            textBoxConfirmarSenha.Location = new Point(659, 351);
+            textBoxConfirmarSenha.Name = "textBoxConfirmarSenha";
+            textBoxConfirmarSenha.Size = new Size(270, 27);
+            textBoxConfirmarSenha.TabIndex = 21;
             // 
             // label5
             // 
@@ -186,37 +161,13 @@ namespace GerenciamentoDeEstoque
             label5.Font = new Font("Arial", 13.8F, FontStyle.Bold);
             label5.ForeColor = SystemColors.ControlText;
             label5.ImageAlign = ContentAlignment.MiddleLeft;
-            label5.Location = new Point(661, 249);
+            label5.Location = new Point(659, 321);
             label5.Name = "label5";
             label5.Size = new Size(200, 27);
             label5.TabIndex = 19;
             label5.Text = "Confirmar Senha";
             label5.TextAlign = ContentAlignment.MiddleCenter;
             label5.Click += label5_Click_1;
-            // 
-            // textBox5
-            // 
-            textBox5.Anchor = AnchorStyles.None;
-            textBox5.BackColor = Color.White;
-            textBox5.BorderStyle = BorderStyle.FixedSingle;
-            textBox5.Cursor = Cursors.IBeam;
-            textBox5.Location = new Point(661, 434);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(270, 27);
-            textBox5.TabIndex = 24;
-            // 
-            // label6
-            // 
-            label6.Anchor = AnchorStyles.None;
-            label6.AutoSize = true;
-            label6.Font = new Font("Arial", 13.8F, FontStyle.Bold);
-            label6.ImageAlign = ContentAlignment.BottomLeft;
-            label6.Location = new Point(661, 404);
-            label6.Name = "label6";
-            label6.Size = new Size(51, 27);
-            label6.TabIndex = 23;
-            label6.Text = "Cpf";
-            label6.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // button1
             // 
@@ -225,7 +176,7 @@ namespace GerenciamentoDeEstoque
             button1.FlatAppearance.BorderSize = 0;
             button1.FlatStyle = FlatStyle.Flat;
             button1.Font = new Font("Arial", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button1.Location = new Point(688, 528);
+            button1.Location = new Point(677, 511);
             button1.Name = "button1";
             button1.Size = new Size(94, 29);
             button1.TabIndex = 25;
@@ -233,22 +184,45 @@ namespace GerenciamentoDeEstoque
             button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click_1;
             // 
+            // label4
+            // 
+            label4.Anchor = AnchorStyles.None;
+            label4.AutoSize = true;
+            label4.Font = new Font("Arial", 13.8F, FontStyle.Bold);
+            label4.ForeColor = SystemColors.ControlText;
+            label4.ImageAlign = ContentAlignment.MiddleLeft;
+            label4.Location = new Point(659, 396);
+            label4.Name = "label4";
+            label4.Size = new Size(79, 27);
+            label4.TabIndex = 26;
+            label4.Text = "Cargo";
+            label4.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // comboBox1
+            // 
+            comboBox1.Cursor = Cursors.Hand;
+            comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Items.AddRange(new object[] { "Vendedor", "Administrador" });
+            comboBox1.Location = new Point(659, 426);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(270, 28);
+            comboBox1.TabIndex = 27;
+            // 
             // Cadastro
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(1006, 721);
-            Controls.Add(button1);
-            Controls.Add(textBox5);
-            Controls.Add(label6);
-            Controls.Add(textBox3);
-            Controls.Add(textBox4);
+            Controls.Add(comboBox1);
             Controls.Add(label4);
+            Controls.Add(button1);
+            Controls.Add(textBoxConfirmarSenha);
             Controls.Add(label5);
             Controls.Add(button2);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
+            Controls.Add(textBoxSenha);
+            Controls.Add(textBoxUsuario);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(panel1);
@@ -266,18 +240,16 @@ namespace GerenciamentoDeEstoque
 
         private Label label1;
         private Button button2;
-        private TextBox textBox2;
-        private TextBox textBox1;
+        private TextBox textBoxSenha;
+        private TextBox textBoxUsuario;
         private Label label3;
         private Label label2;
         private Panel panel1;
         private Panel panel2;
-        private TextBox textBox3;
-        private TextBox textBox4;
-        private Label label4;
+        private TextBox textBoxConfirmarSenha;
         private Label label5;
-        private TextBox textBox5;
-        private Label label6;
         private Button button1;
+        private Label label4;
+        private ComboBox comboBox1;
     }
 }

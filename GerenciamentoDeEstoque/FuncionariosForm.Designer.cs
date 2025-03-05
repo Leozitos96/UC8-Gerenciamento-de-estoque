@@ -57,18 +57,20 @@
             // 
             // flowFuncionarios
             // 
+            flowFuncionarios.AutoScroll = true;
             flowFuncionarios.BackColor = Color.WhiteSmoke;
-            flowFuncionarios.Dock = DockStyle.Fill;
-            flowFuncionarios.Location = new Point(0, 0);
+            flowFuncionarios.Dock = DockStyle.Bottom;
+            flowFuncionarios.Location = new Point(0, 55);
             flowFuncionarios.Name = "flowFuncionarios";
-            flowFuncionarios.Size = new Size(797, 673);
+            flowFuncionarios.Size = new Size(797, 666);
             flowFuncionarios.TabIndex = 9;
+            flowFuncionarios.Paint += flowFuncionarios_Paint;
             // 
             // FuncionariosForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(797, 673);
+            ClientSize = new Size(797, 721);
             Controls.Add(panel1);
             Controls.Add(flowFuncionarios);
             FormBorderStyle = FormBorderStyle.None;

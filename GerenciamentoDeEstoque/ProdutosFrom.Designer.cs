@@ -61,7 +61,7 @@
             flowProdutos.Dock = DockStyle.Fill;
             flowProdutos.Location = new Point(0, 56);
             flowProdutos.Name = "flowProdutos";
-            flowProdutos.Size = new Size(797, 617);
+            flowProdutos.Size = new Size(797, 665);
             flowProdutos.TabIndex = 3;
             flowProdutos.Paint += flowProdutos_Paint;
             // 
@@ -69,7 +69,8 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(797, 673);
+            AutoScroll = true;
+            ClientSize = new Size(797, 721);
             Controls.Add(flowProdutos);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;

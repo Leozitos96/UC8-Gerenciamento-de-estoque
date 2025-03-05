@@ -33,8 +33,8 @@
             label2 = new Label();
             label3 = new Label();
             label4 = new Label();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
+            textBoxUsuario = new TextBox();
+            textBoxSenha = new TextBox();
             button2 = new Button();
             label5 = new Label();
             panel1 = new Panel();
@@ -96,29 +96,29 @@
             label4.Text = "Ainda não tem cadastro?,";
             label4.Click += label4_Click;
             // 
-            // textBox1
+            // textBoxUsuario
             // 
-            textBox1.Anchor = AnchorStyles.None;
-            textBox1.BackColor = Color.White;
-            textBox1.BorderStyle = BorderStyle.FixedSingle;
-            textBox1.Cursor = Cursors.IBeam;
-            textBox1.Location = new Point(674, 225);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(270, 27);
-            textBox1.TabIndex = 4;
-            textBox1.TextChanged += textBox1_TextChanged;
+            textBoxUsuario.Anchor = AnchorStyles.None;
+            textBoxUsuario.BackColor = Color.White;
+            textBoxUsuario.BorderStyle = BorderStyle.FixedSingle;
+            textBoxUsuario.Cursor = Cursors.IBeam;
+            textBoxUsuario.Location = new Point(674, 225);
+            textBoxUsuario.Name = "textBoxUsuario";
+            textBoxUsuario.Size = new Size(270, 27);
+            textBoxUsuario.TabIndex = 4;
+            textBoxUsuario.TextChanged += textBox1_TextChanged;
             // 
-            // textBox2
+            // textBoxSenha
             // 
-            textBox2.Anchor = AnchorStyles.None;
-            textBox2.BackColor = Color.White;
-            textBox2.BorderStyle = BorderStyle.FixedSingle;
-            textBox2.Cursor = Cursors.IBeam;
-            textBox2.Location = new Point(674, 332);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(270, 27);
-            textBox2.TabIndex = 5;
-            textBox2.TextChanged += textBox2_TextChanged;
+            textBoxSenha.Anchor = AnchorStyles.None;
+            textBoxSenha.BackColor = Color.White;
+            textBoxSenha.BorderStyle = BorderStyle.FixedSingle;
+            textBoxSenha.Cursor = Cursors.IBeam;
+            textBoxSenha.Location = new Point(674, 332);
+            textBoxSenha.Name = "textBoxSenha";
+            textBoxSenha.Size = new Size(270, 27);
+            textBoxSenha.TabIndex = 5;
+            textBoxSenha.TextChanged += textBox2_TextChanged;
             // 
             // button2
             // 
@@ -181,8 +181,8 @@
             ClientSize = new Size(1006, 721);
             Controls.Add(label5);
             Controls.Add(button2);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
+            Controls.Add(textBoxSenha);
+            Controls.Add(textBoxUsuario);
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(label2);
@@ -205,8 +205,8 @@
         private Label label2;
         private Label label3;
         private Label label4;
-        private TextBox textBox1;
-        private TextBox textBox2;
+        private TextBox textBoxUsuario;
+        private TextBox textBoxSenha;
         private Button button2;
         private Label label5;
         private Panel panel1;

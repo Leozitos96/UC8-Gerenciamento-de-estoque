@@ -167,3 +167,4 @@ C:\Users\User\Documents\GitHub\UC8-Gerenciamento-de-estoque\GerenciamentoDeEstoq
 C:\Users\User\Documents\GitHub\UC8-Gerenciamento-de-estoque\GerenciamentoDeEstoque\obj\Debug\net8.0-windows\GerenciamentoDeEstoque.InicioForm.resources
 C:\Users\User\Documents\GitHub\UC8-Gerenciamento-de-estoque\GerenciamentoDeEstoque\obj\Debug\net8.0-windows\GerenciamentoDeEstoque.PedidosForm.resources
 C:\Users\User\Documents\GitHub\UC8-Gerenciamento-de-estoque\GerenciamentoDeEstoque\obj\Debug\net8.0-windows\GerenciamentoDeEstoque.ProdutosFrom.resources
+C:\Users\User\Documents\GitHub\UC8-Gerenciamento-de-estoque\GerenciamentoDeEstoque\obj\Debug\net8.0-windows\GerenciamentoDeEstoque.CriarPedido.resources

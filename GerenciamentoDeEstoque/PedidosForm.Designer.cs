@@ -38,7 +38,7 @@
             // 
             panel1.BackColor = Color.FromArgb(146, 182, 177);
             panel1.Controls.Add(label1);
-            panel1.Dock = DockStyle.Top;
+            panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
             panel1.Size = new Size(797, 56);
@@ -58,18 +58,21 @@
             // 
             // flowPedidos
             // 
+            flowPedidos.AutoScroll = true;
             flowPedidos.BackColor = Color.WhiteSmoke;
-            flowPedidos.Dock = DockStyle.Fill;
-            flowPedidos.Location = new Point(0, 0);
+            flowPedidos.Dock = DockStyle.Bottom;
+            flowPedidos.Location = new Point(0, 56);
             flowPedidos.Name = "flowPedidos";
-            flowPedidos.Size = new Size(797, 673);
+            flowPedidos.Size = new Size(797, 665);
             flowPedidos.TabIndex = 7;
+            flowPedidos.Paint += flowPedidos_Paint;
             // 
             // PedidosForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(797, 673);
+            AutoScroll = true;
+            ClientSize = new Size(797, 721);
             Controls.Add(panel1);
             Controls.Add(flowPedidos);
             FormBorderStyle = FormBorderStyle.None;
