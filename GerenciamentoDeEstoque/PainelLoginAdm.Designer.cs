@@ -37,12 +37,8 @@ namespace GerenciamentoDeEstoque
             buttonFuncionarios = new Button();
             buttonHome = new Button();
             panel3 = new Panel();
-            panel2 = new Panel();
-            label2 = new Label();
-            label1 = new Label();
             panelFormAtivo = new Panel();
             panelBotoes.SuspendLayout();
-            panel2.SuspendLayout();
             SuspendLayout();
             // 
             // panelBotoes
@@ -81,6 +77,7 @@ namespace GerenciamentoDeEstoque
             buttonSair.Text = "Sair";
             buttonSair.TextImageRelation = TextImageRelation.ImageBeforeText;
             buttonSair.UseVisualStyleBackColor = false;
+            buttonSair.Click += buttonSair_Click;
             // 
             // buttonVendas
             // 
@@ -185,42 +182,13 @@ namespace GerenciamentoDeEstoque
             panel3.Size = new Size(209, 120);
             panel3.TabIndex = 3;
             // 
-            // panel2
-            // 
-            panel2.BackColor = Color.FromArgb(120, 138, 163);
-            panel2.Controls.Add(label2);
-            panel2.Controls.Add(label1);
-            panel2.Location = new Point(0, 0);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(1006, 48);
-            panel2.TabIndex = 13;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Arial", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(570, 9);
-            label2.Name = "label2";
-            label2.Size = new Size(155, 27);
-            label2.TabIndex = 1;
-            label2.Text = "Cargo: cargo";
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Arial", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(215, 9);
-            label1.Name = "label1";
-            label1.Size = new Size(235, 27);
-            label1.TabIndex = 0;
-            label1.Text = "Bem vindo, usuario!";
-            // 
             // panelFormAtivo
             // 
-            panelFormAtivo.Location = new Point(209, 48);
+            panelFormAtivo.Location = new Point(209, 0);
             panelFormAtivo.Name = "panelFormAtivo";
-            panelFormAtivo.Size = new Size(797, 673);
+            panelFormAtivo.Size = new Size(797, 721);
             panelFormAtivo.TabIndex = 13;
+            panelFormAtivo.Paint += panelFormAtivo_Paint;
             // 
             // PainelLoginAdm
             // 
@@ -230,15 +198,12 @@ namespace GerenciamentoDeEstoque
             ClientSize = new Size(1006, 721);
             Controls.Add(panelFormAtivo);
             Controls.Add(panelBotoes);
-            Controls.Add(panel2);
             FormBorderStyle = FormBorderStyle.FixedDialog;
             MaximizeBox = false;
             Name = "PainelLoginAdm";
             Text = "PainelLoginAdm";
             Load += PainelLoginAdm_Load;
             panelBotoes.ResumeLayout(false);
-            panel2.ResumeLayout(false);
-            panel2.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -251,9 +216,6 @@ namespace GerenciamentoDeEstoque
         private Button buttonFuncionarios;
         private Button buttonSair;
         private Button buttonVendas;
-        private Panel panel2;
-        private Label label2;
-        private Label label1;
         private Panel panelFormAtivo;
     }
 }

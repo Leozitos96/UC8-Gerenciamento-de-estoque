@@ -8,6 +8,7 @@ namespace GerenciamentoDeEstoque
 {
     internal static class Program
     {
+        private static Database database = new Database();
         [STAThread]
         static void Main(String[] args)
         {

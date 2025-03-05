@@ -28,9 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             panel1 = new Panel();
             label1 = new Label();
             dataGridView1 = new DataGridView();
+            ID = new DataGridViewTextBoxColumn();
+            CLIENTE = new DataGridViewTextBoxColumn();
+            CPF = new DataGridViewTextBoxColumn();
+            PRODUTO = new DataGridViewTextBoxColumn();
+            PRECO = new DataGridViewTextBoxColumn();
+            VALOR = new DataGridViewTextBoxColumn();
+            QUANTIDADE = new DataGridViewTextBoxColumn();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
@@ -59,21 +69,102 @@
             // 
             // dataGridView1
             // 
-            dataGridView1.BackgroundColor = Color.White;
+            dataGridView1.AllowUserToAddRows = false;
+            dataGridView1.AllowUserToResizeColumns = false;
+            dataGridView1.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.Font = new Font("Arial", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridView1.BackgroundColor = Color.WhiteSmoke;
             dataGridView1.BorderStyle = BorderStyle.None;
+            dataGridView1.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { ID, CLIENTE, CPF, PRODUTO, PRECO, VALOR, QUANTIDADE });
             dataGridView1.Dock = DockStyle.Fill;
+            dataGridView1.GridColor = Color.FromArgb(178, 201, 171);
             dataGridView1.Location = new Point(0, 56);
             dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowHeadersVisible = false;
             dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(797, 617);
+            dataGridView1.Size = new Size(797, 665);
             dataGridView1.TabIndex = 8;
+            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
+            // 
+            // ID
+            // 
+            ID.FillWeight = 20F;
+            ID.HeaderText = "ID";
+            ID.MinimumWidth = 6;
+            ID.Name = "ID";
+            ID.ReadOnly = true;
+            ID.Resizable = DataGridViewTriState.False;
+            ID.Width = 90;
+            // 
+            // CLIENTE
+            // 
+            CLIENTE.HeaderText = "CLIENTE";
+            CLIENTE.MinimumWidth = 6;
+            CLIENTE.Name = "CLIENTE";
+            CLIENTE.ReadOnly = true;
+            CLIENTE.Resizable = DataGridViewTriState.False;
+            CLIENTE.Width = 130;
+            // 
+            // CPF
+            // 
+            CPF.HeaderText = "CPF";
+            CPF.MinimumWidth = 6;
+            CPF.Name = "CPF";
+            CPF.ReadOnly = true;
+            CPF.Resizable = DataGridViewTriState.False;
+            CPF.Width = 120;
+            // 
+            // PRODUTO
+            // 
+            PRODUTO.HeaderText = "PRODUTO";
+            PRODUTO.MinimumWidth = 6;
+            PRODUTO.Name = "PRODUTO";
+            PRODUTO.ReadOnly = true;
+            PRODUTO.Resizable = DataGridViewTriState.False;
+            PRODUTO.Width = 120;
+            // 
+            // PRECO
+            // 
+            dataGridViewCellStyle2.Format = "C2";
+            dataGridViewCellStyle2.NullValue = null;
+            PRECO.DefaultCellStyle = dataGridViewCellStyle2;
+            PRECO.HeaderText = "PRECO(U)";
+            PRECO.MinimumWidth = 6;
+            PRECO.Name = "PRECO";
+            PRECO.ReadOnly = true;
+            PRECO.Resizable = DataGridViewTriState.False;
+            PRECO.Width = 120;
+            // 
+            // VALOR
+            // 
+            dataGridViewCellStyle3.Format = "C2";
+            dataGridViewCellStyle3.NullValue = null;
+            VALOR.DefaultCellStyle = dataGridViewCellStyle3;
+            VALOR.HeaderText = "TOTAL";
+            VALOR.MinimumWidth = 6;
+            VALOR.Name = "VALOR";
+            VALOR.ReadOnly = true;
+            VALOR.Resizable = DataGridViewTriState.False;
+            VALOR.Width = 120;
+            // 
+            // QUANTIDADE
+            // 
+            QUANTIDADE.HeaderText = "QUANTIDADE";
+            QUANTIDADE.MinimumWidth = 6;
+            QUANTIDADE.Name = "QUANTIDADE";
+            QUANTIDADE.ReadOnly = true;
+            QUANTIDADE.Resizable = DataGridViewTriState.False;
+            QUANTIDADE.Width = 110;
             // 
             // InicioForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(797, 673);
+            AutoScroll = true;
+            ClientSize = new Size(797, 721);
             Controls.Add(dataGridView1);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
@@ -90,5 +181,12 @@
         private Panel panel1;
         private Label label1;
         private DataGridView dataGridView1;
+        private DataGridViewTextBoxColumn ID;
+        private DataGridViewTextBoxColumn CLIENTE;
+        private DataGridViewTextBoxColumn CPF;
+        private DataGridViewTextBoxColumn PRODUTO;
+        private DataGridViewTextBoxColumn PRECO;
+        private DataGridViewTextBoxColumn VALOR;
+        private DataGridViewTextBoxColumn QUANTIDADE;
     }
 }

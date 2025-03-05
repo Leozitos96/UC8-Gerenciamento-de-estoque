@@ -1,18 +1,21 @@
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using System.Threading;
+using Microsoft.Data.Sqlite;
 
 namespace GerenciamentoDeEstoque
 {
     public partial class Login : Form
     {
         Thread thread;
-
+        private Database database = new Database();
         public Login()
         {
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;
+            atualizarContas();
         }
+
 
         private void label1_Click(object sender, EventArgs e)
         {
@@ -48,16 +51,50 @@ namespace GerenciamentoDeEstoque
         {
             // botao de clique aqui
 
-            Cadastro cadastroForm = new Cadastro(); // Cria uma instância do formulário de cadastro
-            cadastroForm.ShowDialog(); // Abre o formulário de cadastro como uma janela modal
+            Cadastro cadastroForm = new Cadastro();
+            cadastroForm.ShowDialog(); 
         }
 
+        /*Faz um select e verifica todas as contas cadastradas antes do login*/
+        private void atualizarContas()
+        {
+            string conectar = "Data Source=database.db";
+            using (var connection = new SqliteConnection(conectar))
+
+            {
+                connection.Open();
+                string select = "SELECT * FROM Usuarios";
+                var cmd = connection.CreateCommand();
+                cmd.CommandText = select;
+            }
+        }
+
+        /*Botao logar, verifica o USUARIO e SENHA se esta cadastrado no banco de dados, e separa os forms de tela inicial
+         pelo CARGO, SessaoAtual recebe o USUARIO e CARGO para fazer checagem em outros lugares*/
         private void button2_Click(object sender, EventArgs e)
         {
-            this.Close();
-            thread = new Thread(AbrirTelaInicialAdm);
-            thread.SetApartmentState(ApartmentState.STA);
-            thread.Start(); 
+            string senha = textBoxSenha.Text;
+            string usuario = textBoxUsuario.Text;
+            string cargo = database.ContaExistente(usuario, senha);
+            
+            if(cargo == "Administrador")
+            {
+                SessaoAtual.Usuario = usuario;
+                SessaoAtual.Cargo = cargo;
+                this.Close();
+                thread = new Thread(AbrirTelaInicialAdm);
+                thread.SetApartmentState(ApartmentState.STA);
+                thread.Start();
+            }
+            else if (cargo == "Vendedor")
+            {
+                SessaoAtual.Usuario = usuario;
+                SessaoAtual.Cargo = cargo;
+                this.Close();
+                thread = new Thread(AbrirTelaInicialVendedor);
+                thread.SetApartmentState(ApartmentState.STA);
+                thread.Start();
+            }
         }
 
         private void label5_Click(object sender, EventArgs e)
@@ -97,14 +134,23 @@ namespace GerenciamentoDeEstoque
             thread.Start();
         }
 
+        /*Abre o form Cadastro caso ele clique em CLIQUE AQUI no form LOGIN*/
         private void AbrirCadastro(Object obj)
         {
             Application.Run(new Cadastro());
 
         }
+
+        /*Abre o form TelaInicialAdm*/
         private void AbrirTelaInicialAdm(Object obj)
         {
             Application.Run(new PainelLoginAdm());
+        }
+
+        /*Abre o form TelaInicialVendedor*/
+        private void AbrirTelaInicialVendedor(Object obj)
+        {
+            Application.Run(new PainelLoginVendedor());
         }
 
         private void Login_Load(object sender, EventArgs e)

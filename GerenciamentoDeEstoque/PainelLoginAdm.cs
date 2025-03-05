@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -13,6 +14,7 @@ namespace GerenciamentoDeEstoque
 
     public partial class PainelLoginAdm : Form
     {
+        private Thread thread;
         private Form formAtivo;
         public PainelLoginAdm()
         {
@@ -23,6 +25,7 @@ namespace GerenciamentoDeEstoque
             FormShow(new InicioForm());
         }
 
+        //Abre um form dentro do form Inicial
         private void FormShow(Form form)
         {
             formAtivo = form;
@@ -32,6 +35,7 @@ namespace GerenciamentoDeEstoque
             form.Show();
         }
 
+        //Fecha o antigo form antes de abrir o novo
         private void ActiveFormClose()
         {
             if (formAtivo != null)
@@ -39,6 +43,8 @@ namespace GerenciamentoDeEstoque
                 formAtivo.Close();
             }
         }
+
+        //Checa para ver qual botao esta ativo e muda ele de cor
         private void BotaoAtivo(Button button)
         {
             foreach (Control control in panelBotoes.Controls)
@@ -95,6 +101,7 @@ namespace GerenciamentoDeEstoque
 
         }
 
+        //Abre o form home dentro no Painel do administrador
         private void buttonHome_Click(object sender, EventArgs e)
         {
             ActiveFormClose();
@@ -107,6 +114,7 @@ namespace GerenciamentoDeEstoque
 
         }
 
+        //Abre o form funcionarios dentro no Painel do administrador
         private void buttonFuncionarios_Click(object sender, EventArgs e)
         {
             ActiveFormClose();
@@ -115,6 +123,7 @@ namespace GerenciamentoDeEstoque
             FormShow(new FuncionariosForm());
         }
 
+        //Abre o form produtos dentro no Painel do administrador
         private void buttonProdutos_Click(object sender, EventArgs e)
         {
             ActiveFormClose();
@@ -122,6 +131,7 @@ namespace GerenciamentoDeEstoque
             FormShow(new ProdutosFrom());
         }
 
+        //Abre o form vendas dentro no Painel do administrador
         private void buttonVendas_Click(object sender, EventArgs e)
         {
             ActiveFormClose();
@@ -130,6 +140,32 @@ namespace GerenciamentoDeEstoque
         }
 
         private void PainelLoginAdm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        //Botao para sair, apaga a sessao atual e volta para a tela de login
+        private void buttonSair_Click(object sender, EventArgs e)
+        {
+            SessaoAtual.Usuario = "";
+            SessaoAtual.Cargo = "";
+            this.Close();
+            thread = new Thread(AbrirLogin);
+            thread.SetApartmentState(ApartmentState.STA);
+            thread.Start();
+        }
+
+        private void AbrirLogin(object? obj)
+        {
+            Application.Run(new Login());
+        }
+
+        private void panelFormAtivo_Paint(object sender, PaintEventArgs e)
         {
 
         }

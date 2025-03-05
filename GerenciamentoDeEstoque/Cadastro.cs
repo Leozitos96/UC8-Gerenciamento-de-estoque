@@ -16,10 +16,12 @@ namespace GerenciamentoDeEstoque
     public partial class Cadastro : Form
     {
         Thread thread;
+        private Database database = new Database();
         public Cadastro()
         {
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;
+            comboBox1.SelectedIndex = 0;
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -108,12 +110,38 @@ namespace GerenciamentoDeEstoque
             Application.Run(new Login());
         }
 
+        /*Fecha o form voltando para a tela de Login*/
         private void button1_Click_1(object sender, EventArgs e)
         {
             this.Close();
             thread = new Thread(AbrirLogin);
             thread.SetApartmentState(ApartmentState.STA);
             thread.Start();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            string nome = textBoxUsuario.Text.Trim();
+            string senha = textBoxSenha.Text.Trim();
+            string cargo = comboBox1.SelectedItem.ToString();
+            string confirmarSenha = textBoxConfirmarSenha.Text.Trim();
+            if (!(string.IsNullOrEmpty(nome) || string.IsNullOrEmpty(senha) || string.IsNullOrEmpty(confirmarSenha)))
+            {
+                if(!(senha != confirmarSenha))
+                {
+                    Usuario usuario = new Usuario(nome, cargo, senha);
+                    database.CadastrarUsuario(usuario);
+                    MessageBox.Show("Usuario cadastrado com sucesso!", "Sucesso");
+                }
+                else
+                {
+                    MessageBox.Show("Senhas divergentes!", "Erro");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Preencha todos os campos!", "Erro");
+            }
         }
     }
 }

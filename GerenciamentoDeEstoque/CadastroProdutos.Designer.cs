@@ -205,9 +205,11 @@
             numericUpDownQuantidade.BorderStyle = BorderStyle.FixedSingle;
             numericUpDownQuantidade.Location = new Point(381, 103);
             numericUpDownQuantidade.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
+            numericUpDownQuantidade.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             numericUpDownQuantidade.Name = "numericUpDownQuantidade";
             numericUpDownQuantidade.Size = new Size(138, 27);
             numericUpDownQuantidade.TabIndex = 12;
+            numericUpDownQuantidade.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
             // CadastroProdutos
             // 
