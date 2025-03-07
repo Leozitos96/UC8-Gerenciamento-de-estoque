@@ -58,8 +58,6 @@ namespace GerenciamentoDeEstoque
                     Height = 150,
                     BorderStyle = BorderStyle.None,
                     BackColor = Color.FromArgb(178, 201, 177),
-                    BackgroundImage = Image.FromFile(@"C:\\Users\\User\\Documents\\GitHub\\UC8-Gerenciamento-de-estoque\\GerenciamentoDeEstoque\\Images\\funcionarios_grande.png"),
-                    BackgroundImageLayout = ImageLayout.Zoom
                 };
 
                 Label labelInfo = new Label

@@ -138,14 +138,11 @@ namespace GerenciamentoDeEstoque
                     flowProdutos.Controls.Add(panel);
                 }
 
-                string caminho = Directory.GetCurrentDirectory();
                 Panel panelAdicionar = new Panel
                 {
                     Width = 130,
                     Height = 150,
                     BackColor = Color.FromArgb(178, 201, 177),
-                    BackgroundImage = Image.FromFile(@"C:\\Users\\User\\Documents\\GitHub\\UC8-Gerenciamento-de-estoque\\GerenciamentoDeEstoque\\Images\\adicionar_pequeno.png"),
-                    BackgroundImageLayout = ImageLayout.Zoom
                 };
                 Label labelAdicionar = new Label
                 {
