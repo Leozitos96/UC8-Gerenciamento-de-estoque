@@ -1,82 +1,117 @@
 # Sistema de Gerenciamento de Estoque
 
-## Descrição
+Este é o repositório do Sistema de Gerenciamento de Estoque, desenvolvido para otimizar a administração de produtos, pedidos e usuários em um ambiente comercial.
 
-O **Sistema de Gerenciamento de Estoque** foi desenvolvido para otimizar a administração de produtos, pedidos e usuários em ambientes comerciais. Ele oferece uma solução eficiente e segura para empresas que buscam um controle preciso sobre seus estoques e vendas. Utilizando **C#** como linguagem de programação, **.NET** como plataforma de desenvolvimento e **SQLite** como banco de dados, o sistema é robusto, fácil de usar e personalizável.
+## Módulo: Gerenciamento de Estoque
+- **Sprint:** Inicial
+- **Empresa Cliente:** N/A
+- **Responsável Cliente:** N/A
+- **Analista:** Equipe de Desenvolvimento
 
-## Tecnologias Utilizadas
+## 1. Introdução ao Documento
 
-- **C#**: Linguagem de programação principal.
-- **.NET 6/7**: Framework utilizado para o desenvolvimento da aplicação.
-- **SQLite**: Banco de dados leve, eficiente e de fácil configuração.
-- **XAML (caso haja interface gráfica)**: Para a construção da interface do usuário (caso aplicável).
+### 1.1 Objetivo do Projeto
 
-## Requisitos do Sistema
+O Sistema de Gerenciamento de Estoque foi desenvolvido para otimizar a administração de produtos, pedidos e usuários em um ambiente comercial. Utiliza C# como linguagem principal, .NET como plataforma de desenvolvimento e SQLite para armazenamento de dados.
 
-### Requisitos Funcionais
+### 1.2 Delimitação do Problema
 
-1. **Gestão de Usuários**:
-   - Cadastro, edição e remoção de usuários.
-   - Definição de permissões de acesso baseadas no cargo (Administrador ou Vendedor).
-   - Listagem de usuários cadastrados.
-   
-2. **Gestão de Produtos**:
-   - Cadastro, edição e remoção de produtos.
-   - Controle de preços, quantidades e códigos únicos.
-   - Exibição do estoque atual e histórico de movimentações.
+Empresas que necessitam de um controle preciso de estoque enfrentam desafios como falta de rastreamento eficiente de produtos, pedidos e controle de usuários. O sistema visa solucionar esses problemas ao fornecer um ambiente centralizado e intuitivo para gerenciamento de estoque.
 
-3. **Gestão de Pedidos**:
-   - Criação de pedidos vinculados a produtos e clientes.
-   - Atualização automática do estoque após a finalização de uma venda.
-   - Exibição do histórico de pedidos com detalhes das transações.
+## 2. Descrição Geral do Sistema
 
-4. **Controle de Acesso**:
-   - Sistema de login seguro para os usuários.
-   - Diferenciação de acessos entre Administradores e Vendedores.
-   - Controle de sessão para garantir segurança e rastreamento de acessos.
+### 2.1 Usuários do Sistema
 
-### Requisitos Não Funcionais
+- **Administrador:** Gerencia usuários, produtos e pedidos.
+- **Vendedor:** Pode visualizar produtos e registrar pedidos.
 
-1. **Desempenho**:
-   - Tempo de resposta para consultas e operações de banco de dados deve ser inferior a 2 segundos.
-   - A interface do sistema deve ser responsiva e intuitiva, com foco na experiência do usuário.
+### 2.2 Regras de Negócio
 
-2. **Segurança**:
-   - O sistema deve garantir a segurança dos dados armazenados, como senhas de usuários e registros financeiros.
-   - Proteção contra ataques comuns, como injeção de SQL.
+- Apenas administradores podem cadastrar e editar produtos.
+- O estoque é atualizado automaticamente após um pedido ser realizado.
+- O login é obrigatório para acessar qualquer funcionalidade do sistema.
 
-3. **Escalabilidade**:
-   - O sistema deve ser projetado de forma a permitir fácil expansão, seja com mais funcionalidades ou integração com outros sistemas.
+## 3. Descrição da Sprint
 
-## Funcionalidades Principais
+### 3.1 Escopo
 
-### 1. Autenticação e Controle de Acesso
+- Autenticação de usuários.
+- Cadastro, edição e remoção de produtos.
+- Criação e listagem de pedidos.
 
-- **Login seguro**: Sistema de autenticação com validação de usuário e senha.
-- **Controle de acesso**: Permissões diferenciadas para Administradores (com acesso total) e Vendedores (com acesso restrito).
-- **Sessões de usuário**: Cada login é associado a uma sessão que pode ser rastreada para segurança.
+### 3.2 Delimitação
 
-### 2. Gerenciamento de Usuários
+- Não contempla integração com outros sistemas externos.
+- Funciona exclusivamente em ambiente local utilizando SQLite.
 
-- **Cadastro e manutenção de usuários**: Administradores podem cadastrar, editar e remover usuários.
-- **Definição de permissões**: Os usuários podem ser atribuídos aos cargos de Administrador ou Vendedor, com permissões específicas.
-- **Listagem de usuários**: Visualização de todos os usuários cadastrados, com a possibilidade de editar ou remover.
+### 3.3 O que Não Pertence ao Escopo
 
-### 3. Controle de Produtos
+- Funcionalidades de relatórios avançados.
+- Suporte para múltiplas moedas e unidades de medida.
 
-- **Cadastro, edição e remoção de produtos**: Gerencie os produtos do estoque com facilidade.
-- **Controle de preços e quantidades**: Mantenha o estoque atualizado com o controle de preços e quantidades disponíveis.
-- **Códigos únicos**: Cada produto possui um código único para facilitar a identificação e rastreamento.
+## 4. Fator de Impacto
 
-### 4. Gestão de Pedidos
+### 4.1 Detalhamento
 
-- **Criação e gerenciamento de pedidos**: Crie novos pedidos, associe produtos e clientes.
-- **Atualização automática do estoque**: O estoque é ajustado automaticamente conforme os pedidos são finalizados.
-- **Histórico de pedidos**: Acompanhe todos os pedidos realizados, com detalhes das transações, incluindo data, produtos, quantidade e valores.
+- Redução de erros no controle de estoque.
+- Melhor organização na gestão de pedidos.
+- Maior segurança na administração de usuários.
 
-### 5. Banco de Dados
+### 4.2 Componentização
 
-- **Armazenamento de dados**: O banco de dados SQLite armazena informações sobre produtos, usuários e pedidos.
-- **Integridade dos dados**: Relacionamentos entre tabelas garantem que os dados sejam consistentes e válidos.
-- **Consultas rápidas**: O sistema é otimizado para realizar consultas rápidas e eficientes ao banco de dados.
-- 
+- **Módulo de Usuários:** Responsável pelo controle de acesso.
+- **Módulo de Produtos:** Gerencia o catálogo de itens.
+- **Módulo de Pedidos:** Processa vendas e atualiza estoque.
+
+## 5. Requisitos do Sistema
+
+### Requisitos Funcionais (RF)
+
+| Código | Descrição |
+|--------|-----------|
+| RF01   | O sistema deve permitir o cadastro, edição e remoção de usuários. |
+| RF02   | O sistema deve permitir o cadastro, edição e remoção de produtos. |
+| RF03   | O sistema deve permitir a criação e listagem de pedidos. |
+| RF04   | O sistema deve atualizar automaticamente o estoque após uma venda. |
+| RF05   | O sistema deve controlar o acesso de acordo com o cargo do usuário. |
+
+### Requisitos Não Funcionais (RNF)
+
+| Código | Descrição |
+|--------|-----------|
+| RNF01  | O sistema deve ser desenvolvido utilizando a plataforma .NET. |
+| RNF02  | O banco de dados utilizado deve ser SQLite. |
+| RNF03  | A interface do sistema deve ser responsiva e intuitiva. |
+| RNF04  | O tempo de resposta para operações deve ser inferior a 2 segundos. |
+| RNF05  | O sistema deve armazenar dados de forma segura. |
+
+## 6. Cenários
+
+### Contexto
+
+- Como usuário, posso realizar login para acessar o sistema de gerenciamento de estoque.
+- Como administrador, posso cadastrar produtos para manter o catálogo atualizado.
+- Como vendedor, posso registrar pedidos para controlar as vendas.
+
+## 7. Telas
+
+### Descrição da Tela: Tela de Login
+- **Requisitos:** RF01
+- **Cenários:**
+  - Se o usuário inserir credenciais corretas, o login será bem-sucedido.
+  - Se as credenciais forem inválidas, uma mensagem de erro será exibida.
+
+### Descrição da Tela: Cadastro de Produtos
+- **Requisitos:** RF02
+- **Cenários:**
+  - O administrador pode adicionar um novo produto preenchendo os campos obrigatórios.
+  - O sistema exibe uma mensagem de sucesso após o cadastro.
+
+## 8. Como Configurar e Executar o Sistema
+
+### 8.1 Clonando o Repositório
+
+Para obter o código-fonte do sistema, execute o seguinte comando:
+
+```bash
+git clone https://github.com/Leozitos96/UC8-Gerenciamento-de-estoque.git
